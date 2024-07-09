@@ -197,7 +197,7 @@ def home():
 def process_eve1():
     try:
         # Read the output CSV file
-        output_csv_path = 'output_cycles_spikes.csv'
+        output_csv_path = 'battery_data/output_cycles_spikes.csv'
         df = pd.read_csv(output_csv_path)
 
         # Filter eve1 data
@@ -220,7 +220,7 @@ def process_eve1():
 def process_eve2():
     try:
         # Read the output CSV file
-        output_csv_path = 'output_cycles_spikes.csv'
+        output_csv_path = 'battery_data/output_cycles_spikes.csv'
         df = pd.read_csv(output_csv_path)
 
         # Filter eve1 data
@@ -244,7 +244,7 @@ def process_eve2():
 def get_eve1_cell_data():
     try:
         # Read the CSV file
-        df = pd.read_csv('eve1_cell_diff.csv')
+        df = pd.read_csv('battery_data/eve1_cell_diff.csv')
         
         # Create the plot
         fig, ax = plt.subplots(figsize=(12, 6))
@@ -277,7 +277,7 @@ def get_eve1_cell_data():
 def get_eve2_cell_data():
     try:
         # Read the CSV file
-        df = pd.read_csv('eve2_cell_diff.csv')
+        df = pd.read_csv('battery_data/eve2_cell_diff.csv')
         
         # Create the plot
         fig, ax = plt.subplots(figsize=(15, 6))
@@ -311,7 +311,7 @@ def get_eve2_cell_data():
 def compare():
     try:
         # Read the CSV file
-        df = pd.read_csv('comparison_results.csv')
+        df = pd.read_csv('battery_data/comparison_results.csv')
         
         # Create a figure and axes
         fig, ax = plt.subplots(figsize=(12, 6))
@@ -352,7 +352,7 @@ def compare():
 def get_eve1_data():
     try:
         # Read CSV file
-        df = pd.read_csv('eve1_combined.csv')
+        df = pd.read_csv('battery_data/eve1_combined.csv')
         # Select the first 5 rows and the specified columns
         df = df[['Cell Diff', 'Charge MOS', 'Current', 'Date', 'Discharge MOS', 'Max Temp', 'SOC', 'Seconds', 'Voltage']].head(1000)
         # Convert dataframe to JSON
@@ -365,7 +365,7 @@ def get_eve1_data():
 def get_eve2_data():
     try:
         # Read CSV file
-        df = pd.read_csv('eve2_combined.csv')
+        df = pd.read_csv('battery_data/eve2_combined.csv')
         # Select the first 5 rows and the specified columns
         df = df[['Cell Diff', 'Charge MOS', 'Current', 'Date', 'Discharge MOS', 'Max Temp', 'SOC', 'Seconds', 'Voltage']].head(1000)
         # Convert dataframe to JSON
@@ -377,7 +377,7 @@ def get_eve2_data():
 @app.route('/data_compare', methods=['GET'])
 def data_compare():
     try:
-        df = pd.read_csv('comparison_results.csv')
+        df = pd.read_csv('battery_data/comparison_results.csv')
         # Select the first 5 rows and the specified columns
         df = df[['Cycle Number', 'EVE1 Last Cell Diff','EVE2 Last Cell Diff','Battery Health','Total Spikes in EVE2','Cell Diff at Spikes in EVE2']]
         # Convert dataframe to JSON
