@@ -189,7 +189,9 @@ def process_and_save_eve_files(eve1_file_path, eve2_file_path, output_eve1_csv_p
 
 @app.route('/')
 def home():
-    print("Hello, flask")
+    return  jsonify({
+            'message': 'Hello, flask'
+        })
     
 @app.route('/eve1', methods=['GET'])
 def process_eve1():
